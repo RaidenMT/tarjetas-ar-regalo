@@ -47,8 +47,19 @@
         <!-- https://aframe.io/docs/1.1.0/guides/building-a-minecraft-demo.html#preloading-assets -->
         <!-- Assets Management System -->
         <a-assets>
-            <!-- <video id="video" src="./assets/videos/lonrot bailando raro.mp4" loop="false"></video> -->
+            <video id="video" src="./assets/videos/fireworks.mp4" loop="true"></video>
+
             <img id="image1" src="./assets/images/foto-1.jpg" alt="">
+            <img id="image2" src="./assets/images/foto-2.jpg" alt="">
+            <img id="image3" src="./assets/images/foto-3.jpg" alt="">
+            <img id="image4" src="./assets/images/foto-4.jpg" alt="">
+            <img id="image5" src="./assets/images/foto-5.jpg" alt="">
+
+            <a-asset-item id="cake1" src="./assets/models/cake-1.gltf"></a-asset-item>
+            <a-asset-item id="cake2" src="./assets/models/cake-2.gltf"></a-asset-item>
+            <a-asset-item id="sushi1" src="./assets/models/sushi-1.gltf"></a-asset-item>
+            <a-asset-item id="sushi2" src="./assets/models/sushi-2.gltf"></a-asset-item>
+            <a-asset-item id="sushi3" src="./assets/models/sushi-3.gltf"></a-asset-item>
         </a-assets>
 
         <!-- https://medium.com/swlh/ar-js-the-simplest-way-to-get-cross-browser-augmented-reality-on-the-web-10cbc721debc -->
@@ -60,14 +71,48 @@
             url="./assets/markers/pattern.patt" 
             id="videoMarker"
             size="0.05">
+            <a-entity 
+                material="shader: chromakey; src: #video; color: 0.0 0.0 0.0; side: double" 
+                geometry="primitive: plane; height: 3; width: 3"
+                rotation="-45 0 0"
+                position="0 0 -2">
+            </a-entity>
+
             <a-image 
                 src="#image1"
                 rotation="-90 0 0"
-                width="3"
-                height="3"    
+                width="2"
+                height="2"
+                id="imgRegalo"
             ></a-image>
 
-            
+            <a-entity 
+                gltf-model="#cake1"
+                scale="0.05 0.05 0.05"
+                position="-1 0 -1"
+            ></a-entity>
+
+            <a-entity 
+                gltf-model="#cake2"
+                position="1.5 0 -1"
+            ></a-entity>
+
+            <a-entity 
+                gltf-model="#sushi1"
+                position="-1 0 0"
+            ></a-entity>
+
+            <a-entity 
+                gltf-model="#sushi2"
+                position="2 0 2.5"
+                rotation="0 45 0"
+            ></a-entity>
+
+            <a-entity 
+                gltf-model="#sushi3"
+                position="0 0 2"
+                scale="0.05 0.05 0.05"
+            ></a-entity>
         </a-marker>
 
         <a-entity camera></a-entity>
@@ -76,13 +121,18 @@
 
     <script>
         // https://stackoverflow.com/questions/44799413/how-to-detect-when-a-marker-is-found-in-ar-js
-        // var video = document.querySelector('#video');
+        var video = document.querySelector('#video');
         var videoMarker = document.querySelector('#videoMarker');
+        var imgRegalo = document.querySelector("#imgRegalo");
+
         videoMarker.addEventListener('markerFound', function () {
-            // video.play();
+            video.play();
         });
         videoMarker.addEventListener('markerLost', function () {
-            // video.pause();
+            video.pause();
+
+            imageNumber = Math.floor(Math.random() * 5) + 1;
+            imgRegalo.setAttribute('src', '#image' + imageNumber);
         });
     </script>
 
