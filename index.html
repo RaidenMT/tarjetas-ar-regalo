@@ -49,17 +49,28 @@
         <a-assets>
             <video id="video" src="./assets/videos/fireworks.mp4" loop="true"></video>
 
-            <img id="image1" src="./assets/images/foto-1.jpg" alt="">
-            <img id="image2" src="./assets/images/foto-2.jpg" alt="">
-            <img id="image3" src="./assets/images/foto-3.jpg" alt="">
-            <img id="image4" src="./assets/images/foto-4.jpg" alt="">
-            <img id="image5" src="./assets/images/foto-5.jpg" alt="">
+            <img id="image1" src="./assets/images/foto-1.jpg" alt="Foto de Amponsah Nii Davidson en Pexels">
+            <img id="image2" src="./assets/images/foto-2.jpg" alt="Foto de Tatiana Syrikova en Pexels">
+            <img id="image3" src="./assets/images/foto-3.jpg" alt="Foto de Kampus Production en Pexels">
+            <img id="image4" src="./assets/images/foto-4.jpg" alt="Foto de Kampus Production en Pexels">
+            <img id="image5" src="./assets/images/foto-5.jpg" alt="Foto de Kenneth Carpina en Pexels">
+            <img id="image6" src="./assets/images/foto-6.jpg" alt="Foto de Anna Shvets en Pexels">
+            <img id="image7" src="./assets/images/foto-7.jpg" alt="Foto de Anna Shvets en Pexels">
+            <img id="image8" src="./assets/images/foto-8.jpg" alt="Foto de Anna Shvets en Pexels">
+            <img id="image9" src="./assets/images/foto-9.jpg" alt="Foto de The_MrDan en Pexels">
+            <img id="image10" src="./assets/images/foto-10.jpg" alt="Foto de Sam Lion en Pexels">
+            <img id="image11" src="./assets/images/foto-11.jpg" alt="Foto de Jasmine Carter en Pexels">
+            <img id="image12" src="./assets/images/foto-12.jpg" alt="Foto de Shvets Anna en Pexels">
+            <img id="image13" src="./assets/images/foto-13.jpg" alt="Foto de Helena Lopes en Pexels">
+            <img id="image14" src="./assets/images/foto-14.jpg" alt="Foto de GUIVERG en Pexels">
+            <img id="image15" src="./assets/images/foto-15.jpg" alt="Foto de August de Richelieu en Pexels">
 
             <a-asset-item id="cake1" src="./assets/models/cake-1.gltf"></a-asset-item>
             <a-asset-item id="cake2" src="./assets/models/cake-2.gltf"></a-asset-item>
-            <a-asset-item id="sushi1" src="./assets/models/sushi-1.gltf"></a-asset-item>
-            <a-asset-item id="sushi2" src="./assets/models/sushi-2.gltf"></a-asset-item>
-            <a-asset-item id="sushi3" src="./assets/models/sushi-3.gltf"></a-asset-item>
+            <a-asset-item id="heart" src="./assets/models/HEART.gltf" alt="Modelo de Aaron Clifford en Google Poly"></a-asset-item>
+            <a-asset-item id="gift" src="./assets/models/gift.gltf" alt="Modelo de Aaron Clifford en Google Poly"></a-asset-item>
+            <a-asset-item id="gift2" src="./assets/models/gift2.gltf" alt="Modelo de Jarlan Perez en Google Poly"></a-asset-item>
+            <a-asset-item id="gift3" src="./assets/models/gift3.gltf" alt="Modelo de Jarlan Perez en Google Poly"></a-asset-item>
         </a-assets>
 
         <!-- https://medium.com/swlh/ar-js-the-simplest-way-to-get-cross-browser-augmented-reality-on-the-web-10cbc721debc -->
@@ -68,9 +79,9 @@
         <a-marker 
             preset="custom" 
             type="pattern" 
-            url="./assets/markers/pattern.patt" 
+            url="./assets/markers/pattern-cake-slice.patt" 
             id="videoMarker"
-            size="0.05">
+            size="0.03">
             <a-entity 
                 material="shader: chromakey; src: #video; color: 0.0 0.0 0.0; side: double" 
                 geometry="primitive: plane; height: 3; width: 3"
@@ -93,24 +104,29 @@
             ></a-entity>
 
             <a-entity 
-                gltf-model="#cake2"
-                position="1.5 0 -1"
+                gltf-model="#heart"
+                position="1.8 0 1"
+                rotation="-45 0 0"
+                scale="0.008 0.008 0.008"
             ></a-entity>
 
             <a-entity 
-                gltf-model="#sushi1"
-                position="-1.5 0 1.5"
+                gltf-model="#gift"
+                position="-1.8 0 0.6"
             ></a-entity>
 
             <a-entity 
-                gltf-model="#sushi2"
-                position="0.2 0 3"
+                gltf-model="#gift2"
+                position="0.3 0 0.8"
+                rotation="0 0 0"
+                scale="0.6 0.6 0.6"
             ></a-entity>
 
             <a-entity 
-                gltf-model="#sushi3"
-                position="0 0 2"
-                scale="0.05 0.05 0.05"
+                gltf-model="#gift3"
+                scale="0.6 0.6 0.6"
+                rotation="0 -45 0"
+                position="1.8 0 -0.8"
             ></a-entity>
         </a-marker>
 
@@ -130,7 +146,7 @@
         videoMarker.addEventListener('markerLost', function () {
             video.pause();
 
-            imageNumber = Math.floor(Math.random() * 5) + 1;
+            imageNumber = Math.floor(Math.random() * 15) + 1;
             imgRegalo.setAttribute('src', '#image' + imageNumber);
         });
     </script>
