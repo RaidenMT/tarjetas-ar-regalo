@@ -13,6 +13,8 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="./js/aframe-chromakey-material.min.js"></script>
 
+    <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
     <!-- https://aframe.io/docs/1.1.0/introduction/writing-a-component.html -->
     <script>
         // AFRAME.registerComponent('video-player', {
@@ -41,7 +43,8 @@
 
     <!-- https://medium.com/chialab-open-source/10-tips-to-enhance-your-ar-js-app-8b44c6faffca -->
     <a-scene embedded
-        arjs="sourceType: webcam; sourceWidth: 1280; sourceHeight: 960; displayWidth: 1280; displayHeight: 960;">
+        arjs="sourceType: webcam; sourceWidth: 1280; sourceHeight: 960; displayWidth: 1280; displayHeight: 960;"
+        gesture-detector>
 
         <!-- https://www.youtube.com/watch?v=5KjyTU07EHo -->
         <!-- https://aframe.io/docs/1.1.0/guides/building-a-minecraft-demo.html#preloading-assets -->
@@ -81,7 +84,13 @@
             type="pattern" 
             url="./assets/markers/pattern-cake-slice.patt" 
             id="videoMarker"
-            size="0.03">
+            size="0.03"
+            
+            raycaster="objects: .clickable"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            >
+
             <a-entity 
                 material="shader: chromakey; src: #video; color: 0.0 0.0 0.0; side: double" 
                 geometry="primitive: plane; height: 3; width: 3"
@@ -95,6 +104,9 @@
                 width="2"
                 height="2"
                 id="imgRegalo"
+
+                class="clickable"
+                gesture-handler
             ></a-image>
 
             <a-entity 
@@ -134,22 +146,7 @@
 
     </a-scene>
 
-    <script>
-        // https://stackoverflow.com/questions/44799413/how-to-detect-when-a-marker-is-found-in-ar-js
-        var video = document.querySelector('#video');
-        var videoMarker = document.querySelector('#videoMarker');
-        var imgRegalo = document.querySelector("#imgRegalo");
-
-        videoMarker.addEventListener('markerFound', function () {
-            video.play();
-        });
-        videoMarker.addEventListener('markerLost', function () {
-            video.pause();
-
-            imageNumber = Math.floor(Math.random() * 15) + 1;
-            imgRegalo.setAttribute('src', '#image' + imageNumber);
-        });
-    </script>
+    <script src="./js/index.js"></script>
 
 </body>
 
