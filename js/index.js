@@ -17,33 +17,7 @@ videoMarker.addEventListener('markerLost', function () {
 
     video.pause();
 
-    // imageNumber = Math.floor(Math.random() * 15) + 1;
-    // imgRegalo.setAttribute('src', '#image' + imageNumber);
+    imageNumber = Math.floor(Math.random() * 15) + 1;
+    imgRegalo.setAttribute('src', '#image' + imageNumber);
 });
-
-
-//#region Gestures 
-// function handleRotation(ev) {
-//     if (isMarkerVisible) {
-//         el.object3D.rotation.y += ev.detail.positionChange.x * rotationFactor;
-//         el.object3D.rotation.x += ev.detail.positionChange.y * rotationFactor;
-//     }
-// }
-
-// function handleScale(ev) {
-//     if (isMarkerVisible) {
-//         this.scaleFactor *= 1 + ev.detail.spreadChange / ev.detail.startSpread;
-
-//         this.scaleFactor = Math.min(
-//             Math.max(this.scaleFactor, this.data.minScale),
-//             this.data.maxScale
-//         );
-
-//         el.object3D.scale.x = scaleFactor * initialScale.x;
-//         el.object3D.scale.y = scaleFactor * initialScale.y;
-//         el.object3D.scale.z = scaleFactor * initialScale.z;
-//     }
-// }
-
-//#endregion
 
