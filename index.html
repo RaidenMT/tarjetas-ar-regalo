@@ -43,9 +43,14 @@
 <body style="margin: 0px; overflow: hidden;">
 
     <!-- https://medium.com/chialab-open-source/10-tips-to-enhance-your-ar-js-app-8b44c6faffca -->
+    
+    <!-- https://github.com/jeromeetienne/AR.js/issues/410 -->
+    <!-- https://github.com/AR-js-org/AR.js/issues/52 -->
     <a-scene embedded
         arjs="sourceType: webcam; sourceWidth: 1280; sourceHeight: 960; displayWidth: 1280; displayHeight: 960;"
-        gesture-detector>
+        gesture-detector
+        
+        renderer="logarithmicDepthBuffer: true">
 
         <!-- https://www.youtube.com/watch?v=5KjyTU07EHo -->
         <!-- https://aframe.io/docs/1.1.0/guides/building-a-minecraft-demo.html#preloading-assets -->
