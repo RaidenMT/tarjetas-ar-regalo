@@ -13,6 +13,7 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="./js/aframe-chromakey-material.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 
     <!-- https://aframe.io/docs/1.1.0/introduction/writing-a-component.html -->
@@ -74,6 +75,7 @@
             <a-asset-item id="gift" src="./assets/models/gift.gltf" alt="Modelo de Aaron Clifford en Google Poly"></a-asset-item>
             <a-asset-item id="gift2" src="./assets/models/gift2.gltf" alt="Modelo de Jarlan Perez en Google Poly"></a-asset-item>
             <a-asset-item id="gift3" src="./assets/models/gift3.gltf" alt="Modelo de Jarlan Perez en Google Poly"></a-asset-item>
+            <a-asset-item id="michelle" src="./assets/models/michelle.glb" alt="Modelo de Mixamo"></a-asset-item>
         </a-assets>
 
         <!-- https://medium.com/swlh/ar-js-the-simplest-way-to-get-cross-browser-augmented-reality-on-the-web-10cbc721debc -->
@@ -105,9 +107,6 @@
                 width="2"
                 height="2"
                 id="imgRegalo"
-
-                class="clickable"
-                gesture-handler
             ></a-image>
 
             <a-entity 
@@ -124,11 +123,6 @@
             ></a-entity>
 
             <a-entity 
-                gltf-model="#gift"
-                position="-1.8 0 0.6"
-            ></a-entity>
-
-            <a-entity 
                 gltf-model="#gift2"
                 position="0.3 0 0.8"
                 rotation="0 0 0"
@@ -141,14 +135,29 @@
                 rotation="0 -45 0"
                 position="1.8 0 -0.8"
             ></a-entity>
+
+            <!-- https://aframe.io/docs/1.1.0/components/gltf-model.html#using-animations -->            
+            <a-entity
+                gltf-model="#michelle"
+                position="-1.5 0 0"
+                
+                class="clickable"
+                gesture-handler
+
+                animation-mixer
+            ></a-entity>
         </a-marker>
 
         <a-entity camera></a-entity>
 
     </a-scene>
 
+
+    <!-- <p>"Hydrozoan Jellyfish (Anthomedusae)" by n- is licensed under Creative Commons Attribution. https://skfb.ly/6Us8X To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.</p> -->
+
     <script src="./js/index.js"></script>
 
+    
 </body>
 
 </html>
