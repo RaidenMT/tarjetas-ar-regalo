@@ -76,6 +76,10 @@
             <a-asset-item id="gift2" src="./assets/models/gift2.gltf" alt="Modelo de Jarlan Perez en Google Poly"></a-asset-item>
             <a-asset-item id="gift3" src="./assets/models/gift3.gltf" alt="Modelo de Jarlan Perez en Google Poly"></a-asset-item>
             <a-asset-item id="michelle" src="./assets/models/michelle.glb" alt="Modelo de Mixamo"></a-asset-item>
+
+            <a-asset-item id="gift4" src="./assets/models/gift4/scene.glb" alt="'Gift - 3December' by zhixson en Sketchfab."></a-asset-item>
+            <a-asset-item id="gift5" src="./assets/models/gift5/scene.glb" alt="'gift_box' by Kirill1991 en Sketchfab."></a-asset-item>
+            <a-asset-item id="gift6" src="./assets/models/gift6/scene.glb" alt="Gift by davimfs7 en Sketchfab."></a-asset-item>
         </a-assets>
 
         <!-- https://medium.com/swlh/ar-js-the-simplest-way-to-get-cross-browser-augmented-reality-on-the-web-10cbc721debc -->
@@ -123,17 +127,17 @@
             ></a-entity>
 
             <a-entity 
-                gltf-model="#gift2"
-                position="0.3 0 0.8"
+                gltf-model="#gift4"
+                position="0.3 0 1.5"
                 rotation="0 0 0"
-                scale="0.6 0.6 0.6"
+                scale="1 0.5 0.5"
             ></a-entity>
 
             <a-entity 
                 gltf-model="#gift3"
-                scale="0.6 0.6 0.6"
                 rotation="0 -45 0"
                 position="1.8 0 -0.8"
+                scale="0.5 0.5 0.5"
             ></a-entity>
 
             <!-- https://aframe.io/docs/1.1.0/components/gltf-model.html#using-animations -->            
@@ -148,7 +152,8 @@
             ></a-entity>
         </a-marker>
 
-        <a-entity camera></a-entity>
+        <!-- https://aframe.io/docs/1.1.0/components/camera.html -->
+        <a-entity camera="near: 0.0001; far: 5000;" position="0 1.6 0"></a-entity>
 
     </a-scene>
 
